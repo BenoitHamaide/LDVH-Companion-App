@@ -19,14 +19,13 @@ setCount1(count1 += 1)
 
 
     return (
-        <div className='encounter'>
-            <h1>CASES DES RENCONTRES AVEC UN MONSTRE </h1>
+        <div className='encounter m1'>
             <p>Habileté = {count1} </p>  
-            <button className="btn" onClick={() => addCaract1(count1)}> + </button>
-      <button className="btn" onClick={() => removeCaract1(count1)}disabled={count1 <= 0 ? true : false}> - </button>
+            <button className="buttonVert" onClick={() => addCaract1(count1)}> + </button>
+      <button className="buttonRouge" onClick={() => removeCaract1(count1)}disabled={count1 <= 0 ? true : false}> - </button>
       <p>Endurance = {count2} </p>    
-      <button className="btn" onClick={() => addCaract2(count2)}> + </button>
-      <button className="btn" onClick={() => removeCaract2(count2)}disabled={count2 <= 0 ? true : false}> - </button>
+      <button className="buttonVert" onClick={() => addCaract2(count2)}> + </button>
+      <button className="buttonRouge" onClick={() => removeCaract2(count2)}disabled={count2 <= 0 ? true : false}> - </button>
 
 
         </div>

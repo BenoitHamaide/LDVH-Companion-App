@@ -11,10 +11,10 @@ const Dice = () => {
         };
         const total = dice1 + dice2
     return (
-        <div>
+        <div className='element dice'>
             <div>{dice1}</div>
       <div>{dice2}</div>
-      <button onClick={rollDice}>Roll Dice!</button>
+      <button className='buttonVert' onClick={rollDice}>Roll Dice!</button>
    <p>Total du lancé : {total} </p> 
    </div>
     

@@ -13,12 +13,12 @@ setCount(count += 1)
     }
     const start = inputValue
     return (
-        <div className="element">
+        <div className="element ch">
             <h1 className="titleCaract">CHANCE</h1>
             <p>Total de départ = <input type="number" value={inputValue} onChange={e => setInputValue(Number(e.target.value))} /></p>
        <p>Actuel = {start + count} </p>     
-      <button className="btn" onClick={() => addCaract(count)}> + </button>
-      <button className="btn" onClick={() => removeCaract(count)}disabled={start + count <= 0 ? true : false}> - </button>
+      <button className="buttonVert" onClick={() => addCaract(count)}> + </button>
+      <button className="buttonRouge" onClick={() => removeCaract(count)}disabled={start + count <= 0 ? true : false}> - </button>
 
       
         </div>

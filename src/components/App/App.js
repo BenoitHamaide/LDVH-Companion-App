@@ -13,29 +13,40 @@ import Luck from '../Luck/Luck';
 import Power from '../Power/Power';
 import Skill from '../Skill/Skill';
 import Will from '../Will/Will';
-import './styles.css';
+import './styles.scss';
 
 // == Composant
 function App() {
   return (
     <div className="app">
-      <h1>Companion-App</h1>
+      <h1 className='title-app'>La Nuit du Nécromancien</h1>
+      <h3>Companion-App</h3>
       <h2>La feuille d'aventure</h2>
+      <div className='container
+      '>
 <Skill />
 <Endurance />
 <Luck />
-<Will />
 <Power />
+<Will />
 <Host />
-<Equipments />
-<Dice />
+<Equipments /></div>
+
+<div className='dices'>
+  <Dice />
+</div>
+
+  <h2 className='monsterTitle'>CASES DES RENCONTRES AVEC UN MONSTRE </h2>
+<div className='containerEncounter'>
 <Encounter />
 <Encounter2 />
 <Encounter3 />
 <Encounter4 />
 <Encounter5 />
 <Encounter6 />
+</div>
     </div>
+    
   );
 }
 
