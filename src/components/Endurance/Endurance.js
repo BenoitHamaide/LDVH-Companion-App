@@ -28,6 +28,17 @@ function Endurance() {
     localStorage.setItem('endurance-total', count);
   }, [inputValue, count]);
 
+  useEffect(() => {
+    function handleUnload() {
+      localStorage.setItem('endurance-initial', inputValue);
+      localStorage.setItem('endurance-total', count);
+    }
+    window.onbeforeunload = handleUnload;
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [inputValue, count]);
+
   const start = parseInt(inputValue, 10);
   const total = start + count;
 

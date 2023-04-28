@@ -28,6 +28,17 @@ function Luck() {
     localStorage.setItem('chance-total', count);
   }, [inputValue, count]);
 
+  useEffect(() => {
+    function handleUnload() {
+      localStorage.setItem('chance-initial', inputValue);
+      localStorage.setItem('chance-total', count);
+    }
+    window.onbeforeunload = handleUnload;
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [inputValue, count]);
+
   const start = parseInt(inputValue, 10);
   const total = start + count;
 

@@ -28,6 +28,17 @@ function Skill() {
     localStorage.setItem('habilete-total', count);
   }, [inputValue, count]);
 
+  useEffect(() => {
+    function handleUnload() {
+      localStorage.setItem('habilete-initial', inputValue);
+      localStorage.setItem('habilete-total', count);
+    }
+    window.onbeforeunload = handleUnload;
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [inputValue, count]);
+
   const start = parseInt(inputValue, 10);
   const total = start + count;
 

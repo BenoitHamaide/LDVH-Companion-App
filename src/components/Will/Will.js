@@ -28,6 +28,17 @@ function Will() {
     localStorage.setItem('volonte-total', count);
   }, [inputValue, count]);
 
+  useEffect(() => {
+    function handleUnload() {
+      localStorage.setItem('volonte-initial', inputValue);
+      localStorage.setItem('volonte-total', count);
+    }
+    window.onbeforeunload = handleUnload;
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, [inputValue, count]);
+
   const start = parseInt(inputValue, 10);
   const total = start + count;
 
