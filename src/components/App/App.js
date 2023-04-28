@@ -1,4 +1,5 @@
 // == Import
+import ClearLocalStorageButton from '../ClearLocalStoragButton/ClearLocalStorageButton';
 import Dice from '../Dice/Dice';
 import Encounter from '../Encounter/Encounter';
 import Encounter2 from '../Encounter/Encounter2';
@@ -19,34 +20,37 @@ import './styles.scss';
 function App() {
   return (
     <div className="app">
-      <h1 className='title-app'>La Nuit du Nécromancien</h1>
+      <h1 className="title-app">La Nuit du Nécromancien</h1>
       <h3>Companion-App</h3>
       <h2>La feuille d'aventure</h2>
-      <div className='container
-      '>
-<Skill />
-<Endurance />
-<Luck />
-<Power />
-<Will />
-<Host />
-<Equipments /></div>
+      <div className="container
+      "
+      >
+        <Skill />
+        <Endurance />
+        <Luck />
+        <Power />
+        <Will />
+        <Host />
+        <Equipments />
+      </div>
 
-<div className='dices'>
-  <Dice />
-</div>
+      <div className="dices">
+        <Dice />
+      </div>
 
-  <h2 className='monsterTitle'>CASES DES RENCONTRES AVEC UN MONSTRE </h2>
-<div className='containerEncounter'>
-<Encounter />
-<Encounter2 />
-<Encounter3 />
-<Encounter4 />
-<Encounter5 />
-<Encounter6 />
-</div>
+      <h2 className="monsterTitle">CASES DES RENCONTRES AVEC UN MONSTRE </h2>
+      <div className="containerEncounter">
+        <Encounter />
+        <Encounter2 />
+        <Encounter3 />
+        <Encounter4 />
+        <Encounter5 />
+        <Encounter6 />
+      </div>
+      <ClearLocalStorageButton />
     </div>
-    
+
   );
 }
 

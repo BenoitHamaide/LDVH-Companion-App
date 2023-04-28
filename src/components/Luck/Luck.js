@@ -1,28 +1,62 @@
-import React from 'react';
-import { useState } from 'react';
-const Luck = () => {
-    const [inputValue, setInputValue] = useState(0);
-  
-    const [count, setCount] = useState(inputValue);
-   
-    function addCaract(count){
-setCount(count += 1)
-    }
-    function removeCaract(count) {
-        setCount(count => count - 1)
-    }
-    const start = inputValue
-    return (
-        <div className="element ch">
-            <h1 className="titleCaract">CHANCE</h1>
-            <p>Total de départ = <input type="number" value={inputValue} onChange={e => setInputValue(Number(e.target.value))} /></p>
-       <p>Actuel = {start + count} </p>     
-      <button className="buttonVert" onClick={() => addCaract(count)}> + </button>
-      <button className="buttonRouge" onClick={() => removeCaract(count)}disabled={start + count <= 0 ? true : false}> - </button>
+import { useState, useEffect } from 'react';
 
-      
-        </div>
-    );
-};
+function Luck() {
+  const [inputValue, setInputValue] = useState(
+    localStorage.getItem('chance-initial') || 0,
+  );
+  const [count, setCount] = useState(
+    parseInt(localStorage.getItem('chance-total') || 0),
+  );
+
+  function addCaract() {
+    setCount((count) => count + 1);
+  }
+
+  function removeCaract() {
+    setCount((count) => (count <= 0 ? 0 : count - 1));
+  }
+
+  function handleInputChange(e) {
+    const value = parseInt(e.target.value);
+    if (value >= 0) {
+      setInputValue(value);
+    }
+  }
+
+  useEffect(() => {
+    localStorage.setItem('chance-initial', inputValue);
+    localStorage.setItem('chance-total', count);
+  }, [inputValue, count]);
+
+  const start = parseInt(inputValue, 10);
+  const total = start + count;
+
+  return (
+    <div className="element ch">
+      <h1 className="titleCaract">CHANCE</h1>
+      <p>
+        Total de départ ={' '}
+        <input
+          type="number"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+      </p>
+      <p>Actuel = {total}</p>
+      <button className="buttonVert" onClick={addCaract}>
+        {' '}
+        +{' '}
+      </button>
+      <button
+        className="buttonRouge"
+        onClick={removeCaract}
+        disabled={total <= 0}
+      >
+        {' '}
+        -{' '}
+      </button>
+    </div>
+  );
+}
 
 export default Luck;

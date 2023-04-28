@@ -1,6 +1,10 @@
 @use 'reset';
 @use 'vars';
 
+#root{
+  background: #979797;
+}
+
 body {
   font-family: sans-serif;
   background: whitesmoke;
