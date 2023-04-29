@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function Endurance() {
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('endurance-initial') || 0,
+    localStorage.getItem('endurance-initial') || '',
   );
   const [count, setCount] = useState(
     parseInt(localStorage.getItem('endurance-total') || 0),
@@ -48,7 +48,7 @@ function Endurance() {
       <p>
         Total de départ ={' '}
         <input
-          type="number"
+          type="text"
           value={inputValue}
           onChange={handleInputChange}
         />

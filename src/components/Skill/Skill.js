@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function Skill() {
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('habilete-initial') || 0,
+    localStorage.getItem('habilete-initial') || '',
   );
   const [count, setCount] = useState(
     parseInt(localStorage.getItem('habilete-total') || 0),
@@ -48,7 +48,7 @@ function Skill() {
       <p>
         Total de départ ={' '}
         <input
-          type="number"
+          type="text"
           value={inputValue}
           onChange={handleInputChange}
         />

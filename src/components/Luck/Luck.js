@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function Luck() {
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('chance-initial') || 0,
+    localStorage.getItem('chance-initial') || '',
   );
   const [count, setCount] = useState(
     parseInt(localStorage.getItem('chance-total') || 0),
@@ -48,7 +48,7 @@ function Luck() {
       <p>
         Total de départ ={' '}
         <input
-          type="number"
+          type="text"
           value={inputValue}
           onChange={handleInputChange}
         />

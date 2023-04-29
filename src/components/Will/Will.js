@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Will() {
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('volonte-initial') || 0,
+    localStorage.getItem('volonte-initial') || '',
   );
   const [count, setCount] = useState(
     parseInt(localStorage.getItem('volonte-total') || 0),
@@ -48,7 +48,7 @@ function Will() {
       <p>
         Total de départ ={' '}
         <input
-          type="number"
+          type="text"
           value={inputValue}
           onChange={handleInputChange}
         />
